@@ -1,0 +1,9 @@
+ava is a high-level, object-oriented, and platform-independent programming language developed by James Gosling at Sun Microsystems (now owned by Oracle) and first released in 1995.  It is designed to be simple, robust, secure, and portable, following the principle of "write once, run anywhere" (WORA), meaning compiled Java code can run on any device with a Java Virtual Machine (JVM). 
+
+Key Features of Java
+Object-Oriented: Everything in Java is an object, supporting core OOP concepts like encapsulation, inheritance, and polymorphism. 
+Platform Independence: Java code is compiled into bytecode, which runs on any JVM, regardless of the underlying hardware or operating system. 
+Robust and Secure: Features like automatic memory management (garbage collection), strong type checking, and exception handling enhance reliability and security. 
+Multithreaded: Java supports concurrent execution of multiple threads, enabling efficient handling of parallel tasks. 
+Rich Standard Library: Java provides extensive built-in APIs for I/O, networking, data structures, database connectivity (JDBC), GUI development (Swing, JavaFX), and more. 
+Extensible: Java supports frameworks like Spring, Hibernate, and Jakarta EE for enterprise and web development. 
