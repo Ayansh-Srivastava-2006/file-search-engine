@@ -17,7 +17,10 @@ Efficient indexing for quick query responses.
 Run the entire app in an isolated container.
 📸 Demo
 
-(Add screenshots here for maximum impact)
+<img width="1919" height="975" alt="image" src="https://github.com/user-attachments/assets/05a50978-8ca3-43f2-bca6-4a4c600b07c6" />
+<img width="1919" height="979" alt="image" src="https://github.com/user-attachments/assets/a3f591cf-7f05-4bef-8882-0e0382f9626c" />
+
+
 
 Example:
 
