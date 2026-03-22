@@ -3,6 +3,53 @@
 
 <head>
     <title>File Search Engine</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            background-color: #121212;
+            color: white;
+            text-align: center;
+            margin-top: 100px;
+        }
+
+        h1 {
+            font-size: 40px;
+        }
+
+        input {
+            width: 300px;
+            padding: 10px;
+            border-radius: 20px;
+            border: none;
+            outline: none;
+        }
+
+        button {
+            padding: 10px 20px;
+            border-radius: 20px;
+            border: none;
+            background-color: #4CAF50;
+            color: white;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        .results {
+            margin-top: 40px;
+        }
+
+        .card {
+            background: #1e1e1e;
+            padding: 15px;
+            margin: 10px auto;
+            width: 60%;
+            border-radius: 10px;
+        }
+    </style>
 </head>
 
 <body>
@@ -10,20 +57,34 @@
     <h1>🔍 File Search Engine</h1>
 
     <form method="POST">
-        <input type="text" name="query" placeholder="Search files..." required>
+        <input type="text" name="query" placeholder="Search..." required>
+
+        <select name="type">
+            <option value="all">All</option>
+            <option value="pdf">PDF</option>
+            <option value="txt">Text</option>
+        </select>
+
         <button type="submit">Search</button>
     </form>
-
-    <hr>
-
-    {% if results %}
-    <h2>Results:</h2>
-    {% for title, path in results %}
-    <p><b>{{ title }}</b> → {{ path }}</p>
-    {% endfor %}
-    {% else %}
-    <p>No results yet. Try searching!</p>
-    {% endif %}
+    <form action="/reindex" method="POST">
+        <button type="submit">🔄 Reindex Files</button>
+    </form>
+    <div class="results">
+        {% for title, path, snippet in results %}
+        <p>
+            <b>{{ title }}</b> →
+            <a href="file://{{ path }}" target="_blank">Open</a>
+        </p>
+        <p>{{ snippet|safe }}...</p>
+        <hr>
+        {% endfor %}
+    </div>
+    <select name="type">
+        <option value="all" selected>All</option>
+        <option value="pdf">PDF</option>
+        <option value="txt">Text</option>
+    </select>
 
 </body>
 
