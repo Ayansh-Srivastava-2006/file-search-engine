@@ -6,48 +6,32 @@
 
     <style>
         body {
+            background: #0f172a;
+            color: #e2e8f0;
             font-family: Arial;
-            background-color: #121212;
-            color: white;
-            text-align: center;
-            margin-top: 100px;
         }
 
-        h1 {
-            font-size: 40px;
-        }
-
-        input {
-            width: 300px;
-            padding: 10px;
-            border-radius: 20px;
-            border: none;
-            outline: none;
-        }
-
-        button {
-            padding: 10px 20px;
-            border-radius: 20px;
-            border: none;
-            background-color: #4CAF50;
-            color: white;
-            cursor: pointer;
-        }
-
-        button:hover {
-            background-color: #45a049;
-        }
-
-        .results {
-            margin-top: 40px;
-        }
-
-        .card {
-            background: #1e1e1e;
+        .result-card {
+            background: #1e293b;
             padding: 15px;
-            margin: 10px auto;
-            width: 60%;
+            margin: 15px 0;
             border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .result-card h3 {
+            color: #38bdf8;
+        }
+
+        .path {
+            font-size: 12px;
+            color: #94a3b8;
+        }
+
+        .snippet mark {
+            background: #22c55e;
+            color: black;
+            padding: 2px;
         }
     </style>
 </head>
@@ -72,12 +56,11 @@
     </form>
     <div class="results">
         {% for title, path, snippet in results %}
-        <p>
-            <b>{{ title }}</b> →
-            <a href="file://{{ path }}" target="_blank">Open</a>
-        </p>
-        <p>{{ snippet|safe }}...</p>
-        <hr>
+        <div class="result-card">
+            <h3>{{ title }}</h3>
+            <p class="path">{{ path }}</p>
+            <p class="snippet">{{ snippet | safe }}</p>
+        </div>
         {% endfor %}
     </div>
     <select name="type">

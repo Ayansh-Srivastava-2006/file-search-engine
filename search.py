@@ -1,10 +1,12 @@
 from whoosh.index import open_dir
-from whoosh.qparser import QueryParser
 from whoosh.qparser import MultifieldParser
+from whoosh.qparser import QueryParser
+from whoosh.highlight import HtmlFormatter
 
-ix = open_dir("indexdir")
+
 
 def search(query_str, filetype="all"):
+    ix = open_dir("indexdir")
     results_list = []
 
     with ix.searcher() as searcher:
@@ -19,10 +21,13 @@ def search(query_str, filetype="all"):
             if filetype == "txt" and not path.endswith(".txt"):
                 continue
 
-            snippet = r.get('content', '')[:200].replace(
-                query_str,
-                f"<mark>{query_str}</mark>"
-            )
+            results.formatter = HtmlFormatter(tagname="mark")
+            results.fragmenter.charlimit = 200
+
+            snippet = r.highlights("content")
+
+            if not snippet:
+                snippet = r.get("content", "")[:200]
 
             results_list.append((r['title'], path, snippet))
 
