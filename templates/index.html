@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>File Search Engine</title>
+</head>
+
+<body>
+
+    <h1>🔍 File Search Engine</h1>
+
+    <form method="POST">
+        <input type="text" name="query" placeholder="Search files..." required>
+        <button type="submit">Search</button>
+    </form>
+
+    <hr>
+
+    {% if results %}
+    <h2>Results:</h2>
+    {% for title, path in results %}
+    <p><b>{{ title }}</b> → {{ path }}</p>
+    {% endfor %}
+    {% else %}
+    <p>No results yet. Try searching!</p>
+    {% endif %}
+
+</body>
+
+</html>
