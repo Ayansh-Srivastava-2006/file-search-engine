@@ -1,1 +1,3 @@
-flask whoosh PyPDF2
+flask
+whoosh
+PyPDF2
