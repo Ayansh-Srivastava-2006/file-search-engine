@@ -21,7 +21,7 @@ jobs:
 
       - name: Install dependencies
         run: |
-          pip install -r Dockerfile
+          pip install -r requirement.txt
 
       - name: Build Docker image
         run: |
